@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senyas</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+</head>
+<body>
+ 
+ 
+ 
+ 
+
+  <!---
+History popup window
+--->
+
+    <div class="modal" id='modal1'>
+        <div class="modal-header">
+            <div class="title">History</div>
+            <button data-close-button class="close-button">&times;</button>
+
+        </div>
+
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolor nulla
+            deserunt mollitia impedit fuga quia aut quod nesciunt id? Officiis, et!
+            Deleniti veniam eveniet autem consequuntur iste itaque et?
+        </div>
+    </div>
+
+  <!---
+Dictionary popup window
+--->
+    <div class="modal" id='modal2'>
+      <div class="modal-header">
+          <div class="title">Dictionary</div>
+          <button data-close-button class="close-button">&times;</button>
+
+      </div>
+
+      <div class="modal-body">
+          <ul class="dictionary-list">
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+      </div>
+  </div>
+
+  <!---
+Help popup window
+--->
+<div class="modal" id='modal3'>
+  <div class="modal-header">
+      <div class="title">Help</div>
+      <button data-close-button class="close-button">&times;</button>
+
+  </div>
+
+  <div class="modal-body">
+      <div class="content">
+        <h2>Filipino Sign Language (FSL)</h2>
+        FSL is the natural sign language of Filipino Deaf community. 
+        It is a visual language that belongs to the American Sign Language family of sign languages. 
+        It is the symbol of collective identity of the Filipino Deaf community, and signifies the goal of 
+        self-determination. 
+      </div>
+      
+      <div class="content">
+        <h2>WHAT IS SENYAS?</h2>
+        senyas is your on-the-go Filipino Sign Language ( FSL )
+        translator and interpreter named after the Filipino word equivalent of 'sign'. 
+        It automatically translates audio to FSL through artificial Intelligence.
+      </div>
+
+      <div class="content">
+        <h2>HOW TO USE</h2>
+        The app is simple to use! Simply press and hold the microphone button as you speak the words that you want 
+        to be translated and interpreted. Our avatar will accurately “senyas” or sign it back to you. 
+        If you want to look back to the previous speech inputs you made, a History menu is also available.
+      </div>
+
+      <div class="content">
+        <h2>ADDITIONAL INFORMATION</h2>
+        Alpha build 1.0.0
+      </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+    <div  id="overlay"></div>
+
+    <section class="showcase">
+        <header>
+          <h2 class="logo">SenYas</h2>
+          <div class="toggle"></div>
+        </header>
+        <video src="{{url_for('static', filename='hey hi hello.mp4')}}" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="text">
+          <h2>Hello! </h2> 
+          <h3>I am senyas</h3>
+          <p>your personal FSL translator.</p>
+          
+        </div>
+        
+        <div class="input-area">
+         
+          <input id="transcript" autocomplete="false" name="hidden" class="message-box" type="text" id="name"
+          minlength="2" maxlength="100" size="1">
+          <button class="send-button"> <span>Send</span> </button>
+          <img onclick="startDictation()" src="{{url_for('static', filename='mic.gif')}}" />
+          
+          
+          
+
+        </div>
+       
+
+      </section>
+      <div class="menu">
+        <ul>
+            <button class="history-button" data-modal-target="#modal1"> <span>history</span> </button>
+            <button class="dictionary-button" data-modal-target="#modal2"> <span>dictionary</span> </button>
+            <button class="help-button" data-modal-target="#modal3"> <span>help</span> </button>
+        </ul>
+      </div>
+
+      
+
+      
+
+
+
+      <script>
+      const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
+      const input_area = document.querySelector('.input-area');
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active'); 
+        input_area.classList.toggle('active'); 
+      })
+      </script>
+      <script src="{{url_for('static', filename='modal.js')}}"> </script>
+      
+
+      <script>
+        function startDictation() {
+      
+          if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      
+            var recognition = new webkitSpeechRecognition();
+      
+            recognition.continuous = false;
+            recognition.interimResults = false;
+      
+            recognition.lang = "fil-PH";
+            recognition.start();
+      
+            recognition.onresult = function(e) {
+              document.getElementById('transcript').value
+                                       = e.results[0][0].transcript;
+              recognition.stop();
+              document.getElementById('labnol').submit();
+            };
+      
+            recognition.onerror = function(e) {
+              recognition.stop();
+            }
+      
+          }
+        }
+      </script>
+      
+</body>
+</html>
