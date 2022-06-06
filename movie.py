@@ -1,22 +1,43 @@
-'''
-from moviepy.editor import *
- 
-# loading video dsa gfg intro video
-clip = VideoFileClip("C:\\Users\\Mac\\Desktop\\moviepy\\hey hi hello.mp4")
-clip2 = VideoFileClip("C:\\Users\\Mac\\Desktop\\moviepy\\magandang umaga.mp4")
+#run on anaconda environment
+#to do:
+#chanage intro variable names with .mp4 extension
+#push final
 
-# concatenating both the clips
-final = concatenate_videoclips([clip, clip2])
-
-#writing the video into a file / saving the combined video
-#final.write_videofile("C:\\Users\\Mac\\Desktop\\moviepy\\merged.mp4")
- 
-moviepy.video.io.ffmpeg_tools.ffmpeg_merge_video_audio(video, audio, output, vcodec='copy', acodec='copy', ffmpeg_output=False, logger='bar')
-'''
 import ffmpeg
-video1 = ffmpeg.input('C:\\Users\\Mac\\Desktop\\moviepy\\hey hi hello.mp4')
-
-video2 = ffmpeg.input('C:\\Users\\Mac\\Desktop\\moviepy\\magandang umaga.mp4')
 
 
-ffmpeg.concat(video1, video2, v=2).output('C:\\Users\\Mac\\Desktop\\moviepy\\out.mp4').run()
+
+def processVideo(outputs):
+
+    
+    #create dictionary of input names
+    d = {}
+    for output in outputs:
+        d[outputs.index(output)] = output
+
+
+    def get_key(val):
+        for key, value in d.items():
+            if val == value:
+                return key
+
+    key_list = []
+    for keys in range(len(outputs)):
+        key_list.append(get_key(outputs[keys]))
+
+    #print(key_list)
+
+    for output in d:
+    #loop this to create all inputs
+        d[output]= ffmpeg.input('F:\\Updated\\THESIS FILES\\Thesis\\animation clips\\'+d[output])
+        #d[output] = ffmpeg.input('C:\\Users\\Mc\\Documents\\THESIS FILES\\animation clips\\2.mp4')
+
+    #loop this to concat all input videos
+    concatinated = d[0]
+    for output in range(len(key_list)-1):
+        concatinated = ffmpeg.concat(concatinated, d[key_list[output+1]] )
+        
+    stream = ffmpeg.output(concatinated,'F:\\Updated\\THESIS FILES\\Thesis\\static\\output.mp4')
+    stream = ffmpeg.overwrite_output(stream)
+    ffmpeg.run(stream)
+
