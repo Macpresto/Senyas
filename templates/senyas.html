@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senyas</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 </head>
 <body>
  
- 
- 
- 
+  <div id="loading" style="display: none;">
+    <img src="{{url_for('static', filename='loading.gif')}}" alt="" />
+  </div>
 
+  
   <!---
 History popup window
 --->
@@ -25,10 +27,33 @@ History popup window
         </div>
 
         <div class="modal-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolor nulla
-            deserunt mollitia impedit fuga quia aut quod nesciunt id? Officiis, et!
-            Deleniti veniam eveniet autem consequuntur iste itaque et?
+            <h2>Input bar</h2>
+            You can type any word or phraes on this bar that you would want to be translated into filipino sign language.
+            <img src="{{url_for('static', filename="search.png")}}" > </img>
         </div>
+
+        <div class="modal-body">
+          <h2>microphone button</h2>
+          <img src="{{url_for('static', filename="mic.png")}}" style="vertical-align:middle"> </img>
+          Click this button if you want to use the speech recognition feature for translation.
+          
+        </div>
+
+      <div class="modal-body">
+        <h2>Send button</h2>
+        <img src="{{url_for('static', filename="send-button.png")}}" width="30px" height='auto' style="vertical-align:middle"> </img>
+        This button will initiate the translation for your input from text or speech to filipino sign language.
+      </div>
+
+      <div class="modal-body">
+        <h2>Mood bar</h2>
+        <img src="{{url_for('static', filename="sad.png")}}"  width="80px" height='auto' style="vertical-align:middle"> </img>
+        <img src="{{url_for('static', filename="happy.png")}}"  width="80px" height='auto' style="vertical-align:middle"> </img>
+        This bar will indicate if the mood of the message is either a negative sentiment or a positive sentiment,
+        red indicates negative and green indicates positive.
+      </div>
+
+
     </div>
 
   <!---
@@ -43,12 +68,22 @@ Dictionary popup window
 
       <div class="modal-body">
           <ul class="dictionary-list">
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Alphabet A-Z</li>
+            <li>Numbers 0-9</li>
+            <li>ano ang pangalan mo</li>
+            <li>bingi ka ba</li>
+            <li>hello</li>
+            <li>hey</li>
+            <li>hi</li>
+            <li>hindi</li>
+            <li>i love you</li>
+            <li>kumusta ka</li>
+            <li>magandang umaga</li>
+            <li>mahal kita</li>
+            <li>ok</li>
+            <li>oo</li>
+            <li>opo</li>
+            <li>salamat</li>
           </ul>
       </div>
   </div>
@@ -104,8 +139,13 @@ Help popup window
         <header>
           <h2 class="logo">SenYas</h2>
           <div class="toggle"></div>
+          
+        
         </header>
-        <video src="{{url_for('static', filename='hey hi hello.mp4')}}" muted loop autoplay></video>
+
+       
+
+        <video src="{{url_for('static', filename=vid)}}" muted loop autoplay></video>
         <div class="overlay"></div>
         <div class="text">
           <h2>Hello! </h2> 
@@ -115,17 +155,21 @@ Help popup window
         </div>
         
         <div class="input-area">
-         
+        <form action="#" method="post">
           <input id="transcript" autocomplete="false" name="hidden" class="message-box" type="text" id="name"
-          minlength="2" maxlength="100" size="1">
-          <button class="send-button"> <span>Send</span> </button>
+          minlength="1" maxlength="100" size="1" onkeyup="success()">
+          <button disabled id = "send-button" class="send-button" onclick="$('#loading').show();"> <span>Send</span> </button>
+        </form>
           <img onclick="startDictation()" src="{{url_for('static', filename='mic.gif')}}" />
-          
-          
+         
+         
           
 
         </div>
-       
+        
+      
+        <img id='emotion' class="emotion-class" src="{{url_for('static', filename=emotion)}}" alt="" />
+      
 
       </section>
       <div class="menu">
@@ -146,10 +190,12 @@ Help popup window
       const menuToggle = document.querySelector('.toggle');
       const showcase = document.querySelector('.showcase');
       const input_area = document.querySelector('.input-area');
+      const emotionBar = document.querySelector('.emotion-class');
       menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
         showcase.classList.toggle('active'); 
         input_area.classList.toggle('active'); 
+        emotionBar.classList.toggle('active');
       })
       </script>
       <script src="{{url_for('static', filename='modal.js')}}"> </script>
@@ -182,6 +228,17 @@ Help popup window
           }
         }
       </script>
-      
+  
+  
+  </script>
+  <script>
+  function success() {
+    if(document.getElementById("transcript").value==="") { 
+             document.getElementById('send-button').disabled = true; 
+         } else { 
+             document.getElementById('send-button').disabled = false;
+         }
+     }
+  </script>
 </body>
 </html>
