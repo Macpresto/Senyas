@@ -161,14 +161,15 @@ Help popup window
           <button disabled id = "send-button" class="send-button" onclick="$('#loading').show();"> <span>Send</span> </button>
         </form>
           <img onclick="startDictation()" src="{{url_for('static', filename='mic.gif')}}" />
-         
+          
+          <img id='emotion' class="emotion-class" src="{{url_for('static', filename=emotion)}}" alt="" />
          
           
 
         </div>
         
       
-        <img id='emotion' class="emotion-class" src="{{url_for('static', filename=emotion)}}" alt="" />
+       
       
 
       </section>
