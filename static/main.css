@@ -232,7 +232,7 @@ header .logo
   position: fixed;
   width: 40px;
   z-index: 9999999999999999;
-  filter: invert(1);
+  
   transform: translate(470%, -50%);
   cursor: pointer;
 }
@@ -286,9 +286,9 @@ header .logo
     transform: translate(-50%, -130%);
 }
 .input-area input{
- 
-  width: 15em;
-  font-size: 1em;
+  font-size: .8em;
+  width: 40em;
+  
   
 }
 }
@@ -302,7 +302,12 @@ header .logo
   }
 
 
-
+  .input-area input{
+    font-size: .65em;
+    width: 25em;
+    
+    
+  }
   .text h2
   {
     display: none;
@@ -326,12 +331,7 @@ header .logo
     max-height: 100%;
     
 }
-.input-area input{
- 
-  width: 15em;
-  font-size: 1em;
-  
-}
+
 .input-area button {
   
   background-size: 8%;

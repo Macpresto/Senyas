@@ -6,8 +6,8 @@
 
 
 ##########################################################################################################################
-#import nltk.corpus
-#nltk.download('stopwords')
+import nltk.corpus
+nltk.download('stopwords')
 
 
 from nltk.corpus import stopwords

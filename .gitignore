@@ -1,2 +1,4 @@
 environment/
 model2.h5
+__pycache__/
+archive.zip

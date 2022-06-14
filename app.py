@@ -20,7 +20,7 @@ def home():
         sentimentText = cleanText(user_input)
         #print(sentimentText)
         sentiment_score = translate(sentimentText)
-        if sentiment_score > 0:
+        if sentiment_score >= 0:
             emotion = 'happy.png'
         else:
             emotion = 'sad.png'

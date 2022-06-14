@@ -33,9 +33,9 @@ def processVideo(outputs):
     #loop this to create all inputs
         #animation clips directory
         import os
-        currentDirectory = os.getcwd() + '\Thesis'
+        currentDirectory = os.getcwd()
         print (currentDirectory)
-        d[output]= ffmpeg.input(currentDirectory+'\\animation clips\\'+d[output])
+        d[output]= ffmpeg.input(currentDirectory+'/animation clips/'+d[output])
         #d[output] = ffmpeg.input('C:\\Users\\Mc\\Documents\\THESIS FILES\\animation clips\\2.mp4')
 
     #loop this to concat all input videos
@@ -43,7 +43,6 @@ def processVideo(outputs):
     for output in range(len(key_list)-1):
         concatinated = ffmpeg.concat(concatinated, d[key_list[output+1]] )
         
-    stream = ffmpeg.output(concatinated,currentDirectory+'\\static\\output.mp4')
+    stream = ffmpeg.output(concatinated,currentDirectory+'/static/output.mp4')
     stream = ffmpeg.overwrite_output(stream)
     ffmpeg.run(stream)
-
