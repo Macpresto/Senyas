@@ -4,16 +4,14 @@ from movie import processVideo
 from clean import cleanText, processText
 from sentiment import translate
 
-
 app = Flask(__name__)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route("/home", methods=["POST", "GET"])
 
-
 def home():
-
     user_input = ''
+
     if request.method == "POST":
         user_input = request.form["hidden"]
         #print(user_input)
