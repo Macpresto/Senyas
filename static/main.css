@@ -5,13 +5,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  
 }
 
-
-
 #emotion{
- 
   top: 50%;
   left: 50%;
   position: fixed;
@@ -19,7 +15,6 @@
   z-index: 9999999999999999;
   transform: translate(-50%, -300%);
 }
-
 
 #loading{
   display: flex;
@@ -35,7 +30,6 @@
   background-position: center;
   z-index: 999999999999999999999999999999999999;
   cursor: wait;
-
 }
 
 .loading img{
@@ -43,8 +37,7 @@
   cursor: wait;
 }
 
-header
-{
+header{
   position: absolute;
   top: 0;
   left: 0;
@@ -55,14 +48,14 @@ header
   justify-content: space-between;
   align-items: center;
 }
-header .logo
-{
+
+header .logo{
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
 }
-.toggle
-{
+
+.toggle{
   position: relative;
   width: 60px;
   height: 60px;
@@ -72,16 +65,16 @@ header .logo
   background-position: center;
   cursor: pointer;
 }
-.toggle.active
-{
+
+.toggle.active{
   background: url(https://i.ibb.co/rt3HybH/close.png);
   background-repeat: no-repeat;
   background-size: 25px;
   background-position: center;
   cursor: pointer;
 }
-.showcase
-{
+
+.showcase{
   position: absolute;
   right: 0;
   width: 100%;
@@ -94,13 +87,12 @@ header .logo
   transition: 0.5s;
   z-index: 2;
 }
-.showcase.active
-{
+
+.showcase.active{
   right: 300px;
 }
 
-.showcase video
-{
+.showcase video{
   position: absolute;
   top: 0;
   left: 0;
@@ -109,8 +101,7 @@ header .logo
   object-fit: cover;
   opacity: 0.8;
 }
-.overlay
-{
+.overlay{
   position: absolute;
   top: 0;
   left: 0;
@@ -118,38 +109,37 @@ header .logo
   height: 100%;
   mix-blend-mode: overlay;
 }
-.text
-{
+
+.text{
   position: relative;
   z-index: 10;
 }
 
-.text h2
-{
+.text h2{
   font-size: 5em;
   font-weight: 800;
   color: #fff;
   line-height: 1em;
   text-transform: uppercase;
 }
-.text h3
-{
+
+.text h3{
   font-size: 4em;
   font-weight: 700;
   color: #fff;
   line-height: 1em;
   text-transform: uppercase;
 }
-.text p
-{
+
+.text p{
   font-size: 1.1em;
   color: #fff;
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
 }
-.text a
-{
+
+.text a{
   display: inline-block;
   font-size: 1em;
   background: #fff;
@@ -161,14 +151,13 @@ header .logo
   color: #111;
   letter-spacing: 2px;
   transition: 0.2s;
-  
 }
-.text a:hover
-{
+
+.text a:hover{
   letter-spacing: 6px;
 }
-.social
-{
+
+.social{
   position: absolute;
   z-index: 10;
   bottom: 20px;
@@ -176,23 +165,23 @@ header .logo
   justify-content: center;
   align-items: center;
 }
-.social li
-{
+
+.social li{
   list-style: none;
 }
-.social li a
-{
+
+.social li a{
   display: inline-block;
   margin-right: 20px;
   transform: scale(0.5);
   transition: 0.5s;
 }
-.social li a:hover
-{
+
+.social li a:hover{
   transform: scale(0.5) translateY(-15px);
 }
-.menu
-{
+
+.menu{
   position: absolute;
   top: 0;
   right: 0;
@@ -202,29 +191,27 @@ header .logo
   justify-content: center;
   align-items: center;
   background-position: 50% 50%;
-  
-
 }
-.menu ul
-{
+
+.menu ul{
   position: relative;
 }
-.menu ul li
-{
+
+.menu ul li{
   list-style: none;
 }
-.menu ul li a
-{
+
+.menu ul li a{
   text-decoration: none;
   font-size: 24px;
   color: #111;
 }
-.menu ul li a:hover
-{
+
+.menu ul li a:hover{
   color: #03a9f4; 
 }
 
-.input-area img {
+.input-area img{
   bottom: 10%;
   top: 86%;
   left: 50%;
@@ -237,11 +224,7 @@ header .logo
   cursor: pointer;
 }
 
-
-
-
-@media (max-width: 1300px)
-{
+@media (max-width: 1300px){
   .showcase,
   .showcase header
   {
@@ -265,18 +248,12 @@ header .logo
     font-style: poppins;
     max-width: 100%;
     max-height: 100%;
-    
-    
   }
 .send-button{
-
-  width: 20em;
- 
-  
+  width: 20em;  
 }
 
   #emotion{
-  
     top: 28%;
     left: 50%;
     position: fixed;
@@ -288,8 +265,6 @@ header .logo
 .input-area input{
   font-size: .8em;
   width: 40em;
-  
-  
 }
 }
 
@@ -301,12 +276,9 @@ header .logo
     padding: 40px;
   }
 
-
   .input-area input{
     font-size: .65em;
-    width: 25em;
-    
-    
+    width: 25em;   
   }
   .text h2
   {
@@ -329,11 +301,9 @@ header .logo
     font-style: poppins;
     max-width: 100%;
     max-height: 100%;
-    
 }
 
 .input-area button {
-  
   background-size: 8%;
   
   cursor: pointer;
@@ -370,12 +340,10 @@ header .logo
     width: 1000px;
     z-index: 99999;
     overflow: scroll;
-    
 }
 
 .modal.active{
   transform: translate(-50%, -50%) scale(1);
-
 }
 
 .modal-header{
@@ -386,12 +354,14 @@ header .logo
     background-color: #2bb9b9;
     border-bottom-left-radius: .5em;
     border-bottom-right-radius: .5em;
-
 }
+
 .modal-header .title{
     font-size: 3em;
     font-weight: bold;
+    margin-top: 20px;
 }
+
 .modal-header .close-button{
     cursor: pointer;
     border: none;
@@ -399,13 +369,11 @@ header .logo
     background: none;
     font-size: 3em;
     font-weight: bold;
-
+    margin-top: 20px;
 }
-
 
 .modal-body {
   padding: 10px 15px;;
-  
 }
 
 #overlay{
@@ -426,8 +394,6 @@ header .logo
   pointer-events: all;
 }
 
-
-
 /* History button*/
 .history-button {
   background-image: url('History.png');
@@ -444,9 +410,6 @@ header .logo
 .history-button span {
   display: none;
 }
-
-
-
 
 /* Dictionary button*/
 .dictionary-button {
@@ -465,10 +428,7 @@ header .logo
   display: none;
 }
 
-
-
-
-/* help button*/
+/* Help button*/
 .help-button {
   background-image: url('question.png');
   background-repeat: no-repeat;
@@ -486,14 +446,13 @@ header .logo
   display: none;
 }
 
-
 .content h2{
   font-size: 1.35em;
   padding-top: 1em;
 }
+
 .content{
   padding: 1em;
-  
 }
 
 .message-box{
@@ -506,20 +465,16 @@ header .logo
   position: fixed;
   transform: translate(-50%, -50%);
   width: 15em;
-  
 }
 
 .send-button {
-  
   height: 100px;
   width: 100px;
- 
   background-size: 10%;
   cursor: pointer;
   background-image: url('send-button.png');
   background-repeat: no-repeat;
   bottom: 10%;
-
   top: 86%;
   left: 50%;
   right: 50%;
@@ -534,9 +489,7 @@ header .logo
 .input-area{
   display: flex;
   z-index: 99999999999999;
-  
 }
-
 
 .send-button span{
   display: none;
@@ -549,7 +502,6 @@ header .logo
 .emotion-class.active{
   display: none;
 }
-
 
 .dictionary-list{
   list-style: disc;
