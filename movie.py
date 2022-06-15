@@ -1,18 +1,15 @@
-#run on anaconda environment
-#to do:
-#chanage intro variable names with .mp4 extension
-#push final
-
+"""
+    Note: Run on Anaconda environment
+    To-do: 
+        - Change intro variable names with .mp4 extension
+        - Push final
+"""
 
 import ffmpeg
 import os
 
-
-
 def processVideo(outputs):
-
-    
-    #create dictionary of input names
+    # Create dictionary of input names
     d = {}
     for output in outputs:
         d[outputs.index(output)] = output
@@ -30,15 +27,14 @@ def processVideo(outputs):
     #print(key_list)
 
     for output in d:
-    #loop this to create all inputs
-        #animation clips directory
+    # Loop this to create all inputs
+        # Animation clips directory
         import os
         currentDirectory = os.getcwd()
         print (currentDirectory)
         d[output]= ffmpeg.input(currentDirectory+'/animation clips/'+d[output])
-        #d[output] = ffmpeg.input('C:\\Users\\Mc\\Documents\\THESIS FILES\\animation clips\\2.mp4')
 
-    #loop this to concat all input videos
+    # Loop this to concat all input videos
     concatinated = d[0]
     for output in range(len(key_list)-1):
         concatinated = ffmpeg.concat(concatinated, d[key_list[output+1]] )
