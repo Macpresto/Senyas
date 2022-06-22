@@ -1,3 +1,4 @@
+from queue import Empty
 from flask import Flask, redirect, url_for, render_template, request
 import time
 from movie import processVideo
@@ -24,14 +25,19 @@ def home():
             emotion = 'sad.png'
         videoText = processText(user_input)
         #print(videoText)
-        processVideo(videoText)
+        if videoText:
+            processVideo(videoText)
 
-        #vid = 'output.mp4'
-        print(user_input)
-        print(videoText)
-        print(sentiment_score)
-        vid = 'output.mp4'
-        return render_template("senyas.html", vid = vid, emotion = emotion)
+            #vid = 'output.mp4'
+            print(user_input)
+            print(videoText)
+            print(sentiment_score)
+            vid = 'output.mp4'
+            return render_template("senyas.html", vid = vid, emotion = emotion)
+        else:
+             emotion = 'happy.png'
+             return render_template("senyas.html", vid = 'intro.mp4', emotion = emotion)
+
     else:
         emotion = 'happy.png'
         return render_template("senyas.html", vid = 'intro.mp4', emotion = emotion)
