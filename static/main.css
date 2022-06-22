@@ -7,7 +7,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
-
+.input-area input{
+  font-size: 1em;
+  width: 30em;
+}
 
 #emotion{
   top: 50%;
@@ -251,8 +254,18 @@ header .logo{
     width: 100%;
     height: 100%;
   }
-.send-button{
-  width: 20em;  
+
+.input-area button {
+  background-size: 100%;
+  cursor: pointer;
+  bottom: 10%;
+  top: 86%;
+  left: 50%;
+  right: 50%;
+  position: fixed;
+  width: 50px;
+  transform: translate(400%, -50%);
+  z-index: 999999999999999999999999;
 }
 
   #emotion{
@@ -266,8 +279,23 @@ header .logo{
 }
 .input-area input{
   font-size: .8em;
-  width: 40em;
+  width: 30em;  
 }
+.input-area img{
+  bottom: 10%;
+  top: 86%;
+  left: 50%;
+  right: 50%;
+  position: fixed;
+  width: 40px;
+  z-index: 9999999999999999;
+  
+  transform: translate(350%, -50%);
+  cursor: pointer;
+}
+
+
+
 }
 
 @media (max-width: 660px)
@@ -277,6 +305,7 @@ header .logo{
   {
     padding: 40px;
   }
+  
 
   #search{
     width: 100%;
@@ -309,7 +338,7 @@ header .logo{
 }
 
 .input-area button {
-  background-size: 8%;
+  background-size: 100%;
   
   cursor: pointer;
   bottom: 10%;
@@ -317,8 +346,8 @@ header .logo{
   left: 50%;
   right: 50%;
   position: fixed;
-  width: 40em;
-  transform: translate(-20%, -50%);
+  width: 30px;
+  transform: translate(440%, -50%);
 }
 .input-area img {
   bottom: 10%;
@@ -473,9 +502,9 @@ header .logo{
 }
 
 .send-button {
-  height: 100px;
-  width: 100px;
-  background-size: 10%;
+  width: 90px;
+  height: 90px;
+  background-size: 60%;
   cursor: pointer;
   background-image: url('send-button.png');
   background-repeat: no-repeat;
@@ -484,11 +513,11 @@ header .logo{
   left: 50%;
   right: 50%;
   position: fixed;
-  width: 40em;
-  transform: translate(11%, -50%);
+  transform: translate(260%, -50%);
   border: none;
   background-color: transparent;
   background-position: 50% 50%;
+  z-index: 99999999999999999999;
 }
 
 .input-area{
