@@ -41,8 +41,10 @@ def home():
         sentimentText = cleanText(user_input)
         #print(sentimentText)
         sentiment_score = translate(sentimentText)
-        if sentiment_score >= 0:
+        if sentiment_score > 0:
             emotion = 'happy.png'
+        elif sentiment_score == 0:
+            emotion = 'neutral.png'
         else:
             emotion = 'sad.png'
         videoText = processText(user_input)
